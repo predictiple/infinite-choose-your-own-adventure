@@ -39,23 +39,23 @@ for speech synthesis.
   │                    │─────────────────>│                  │
   │                    │                  │                  │
   │                    │  tts(voice=talla)│                  │
-  │                    │─────────────────────────────────────>│━ Talla speaks
+  │                    │────────────────────────────────────>│━ Talla speaks
   │                    │                  │                  │
   │                    │  log("Isaac...") │                  │
   │                    │─────────────────>│                  │
   │                    │                  │                  │
   │                    │  tts(voice=isaac)│                  │
-  │                    │─────────────────────────────────────>│━ Isaac speaks
+  │                    │────────────────────────────────────>│━ Isaac speaks
   │                    │                  │                  │
   │                    │  tts(voice=talla)│                  │
-  │                    │─────────────────────────────────────>│━ Talla speaks
+  │                    │────────────────────────────────────>│━ Talla speaks
   │                    │                  │                  │
   │                    │  record(stop)    │                  │
   │                    │─────────────────>│                  │
   │                    │                  │                  │
-  │  daniel4500-isaac_1.wav              │                  │
-  │  daniel4500-isaac_1.md               │                  │
-  │  daniel4500-isaac_1_teaser.md        │                  │
+  │  daniel4500-isaac_1.wav               │                  │
+  │  daniel4500-isaac_1.md                │                  │
+  │  daniel4500-isaac_1_teaser.md         │                  │
 ```
 
 ## Cool Features
@@ -103,8 +103,8 @@ Branching session example:
 
                          record(scene="1")
                          ┌──────────────────────────┐
-                         │  Scene 1: On the Bridge   │
-                         │  *_1.wav + *_1.md + teaser│
+                         │ Scene 1: On the Bridge   │
+                         │ *_1.wav + *_1.md + teaser│
                          └────────────┬─────────────┘
                                       │
                ┌──────────────────────┼──────────────────┐
@@ -113,7 +113,7 @@ Branching session example:
     record(scene="1-1")               │    record(scene="1-2")
     ┌────────────────────────┐        │    ┌─────────────────────────┐
     │ Scene 1-1: Turbolift   │        │    │ Scene 1-2: Observation  │
-    │ *_1-1.wav / .md / teas│        │    │ Lounge                  │
+    │ *_1-1.wav / .md / teas │        │    │ Lounge                  │
     └───────────┬────────────┘        │    │ *_1-2.wav / .md / teas  │
                 │                     │    └────────────┬────────────┘
        ┌────────┼────────┐           ...                │
@@ -195,6 +195,8 @@ captured automatically. You can toggle it manually:
 /record off  # stop and save WAV + transcript + teaser
 ```
 
+or just tell the `director`: "stop recording".
+
 ### Re-render a scene
 
 Extract dialogue from a conversation transcript, format as JSON,
@@ -203,6 +205,10 @@ and run:
 ```bash
 bun .opencode/skills/director-regenerator/scripts/regenerate.ts scene1.json
 ```
+
+or just ask the `director` to do it: "regenerate scenes".
+
+Re-rendering is done without audible playback, so that it's faster.
 
 ### Mute/unmute TTS
 
@@ -242,7 +248,6 @@ sample/
 │   ├── add-character/       # Add new voiced agents
 │   ├── switch-director/     # Change director voice
 │   └── director-regenerator/ # Re-render scenes to audio
-├── opencode.json       # Project-level config
 └── package.json        # Dependency: @opencode-ai/plugin
 ```
 
