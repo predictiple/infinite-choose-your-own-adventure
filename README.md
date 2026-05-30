@@ -53,9 +53,9 @@ for speech synthesis.
   │                    │  record(stop)    │                  │
   │                    │─────────────────>│                  │
   │                    │                  │                  │
-  │  daniel4500-isaac_1.wav               │                  │
-  │  daniel4500-isaac_1.md                │                  │
-  │  daniel4500-isaac_1_teaser.md         │                  │
+  │  talla-isaac_1.wav                    │                  │
+  │  talla-isaac_1.md                     │                  │
+  │  talla-isaac_1_teaser.md              │                  │
 ```
 
 ## Cool Features
